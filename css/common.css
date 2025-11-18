@@ -20,7 +20,8 @@
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 100; /*밑에 들어가있으니 얘 꼭 써줘야함 올려줌*/
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 #header.on {
     width: 100%;
@@ -28,7 +29,6 @@
     left: 0;
     top: 0;
     transform: translateX(0%);
-    border-bottom: 1px solid #eee;
 }
 #header .inner {
     height: 90px;
@@ -59,9 +59,11 @@
 #header .util ul li a {
     font-size: 13px;
 }
-#header .util ul li:first-child a {
-    font-size: 13px;
-    font-weight: 500;
+#header .util ul li:last-child a {
+    color: #979797;
+}
+#header .util .all-menu i {
+    font-size: 40px;
 }
 #header .nav {
     position: absolute;
@@ -70,7 +72,7 @@
     top: 0;
     height: 90px;
     overflow: hidden;
-    transition: 0.4s linear;
+    transition: 0.2s linear;
 }
 #header .nav.on {
     height: 450px;
@@ -89,8 +91,11 @@
     font-size: 18px;
     font-weight: 500;
 }
+#header .nav .gnb > li > a:hover {
+    color: #17469d;
+}
 #header .nav .gnb > li > ul {
-    padding-top: 30px;
+    padding-top: 20px;
     border-right: 1px solid rgba(136, 136, 136, 0.2);
     height: 320px;
 }
@@ -100,7 +105,7 @@
 #header .nav .gnb > li > ul a {
     color: #fff;
     font-size: 18px;
-    line-height: 1.8;
+    line-height: 2;
     display: block;
     text-indent: 30px;
 }
@@ -114,10 +119,10 @@
     width: 100%;
     height: 0;
     background: #000;
-    opacity: 0.7;
+    opacity: 0.8;
     position: relative;
     z-index: -10;
-    transition: 0.4s linear;
+    transition: 0.2s linear;
 }
 #header .nav-bg.on {
     height: 350px;
@@ -128,17 +133,17 @@
 }
 #footer .inner {
     width: 1160px;
-    padding: 50px 0;
+    padding: 40px 0;
     color: #fff;
+    line-height: 20px;
 }
 #footer .inner p {
     font-size: 13px;
-    margin-bottom: 5px;
 }
 
 .top {
     position: fixed;
-    right: 15%;
+    right: 12%;
     bottom: 30px;
     display: none;
 }
@@ -166,10 +171,12 @@
     height: 530px;
     background: #fff;
     left: 50%;
-    top: 50%;
-    z-index: 80;
-    transform: translate(-50%, -50%);
-    border-top: 3px solid #07255d;
+    top: 36px;
+    z-index: 1000;
+    transform: translateX(-50%);
+    border-top: 3px solid #1a2c5e;
+    padding: 50px 40px;
+    box-sizing: border-box;
 }
 .sitemap.on {
     display: block;
@@ -185,4 +192,62 @@
 }
 .sitemap .site-gnb {
     display: flex;
+}
+.sitemap .site-gnb > li {
+    width: 33.333%;
+    margin-right: 80px;
+    float: left;
+}
+.sitemap .site-gnb > li:last-child {
+    margin-right: 0;
+}
+.sitemap .site-gnb li a {
+    color: #224e6b;
+    display: block;
+}
+.sitemap .site-gnb > li > a {
+    font-size: 17px;
+    font-weight: 600;
+    border-bottom: 2px solid #1a2c5e;
+    display: block;
+    padding: 0 0 17px 20px;
+}
+.sitemap .site-gnb li ul li {
+    border-bottom: 1px solid #e8e8e8;
+    padding: 15px 20px;
+}
+.sitemap .site-gnb .inside li {
+    border-bottom: none;
+    font-size: 13px;
+    padding: 8px 20px 0;
+}
+.sitemap .site-gnb .inside li:first-child {
+    padding-top: 15px;
+}
+.sitemap .site-gnb .inside li a {
+    color: #676767;
+}
+.sitemap .site-gnb .right ul li a {
+    border-bottom: 2px solid #1a2c5e;
+    padding: 0 0 17px 20px;
+    font-size: 17px;
+    font-weight: 600;
+}
+.sitemap .site-gnb .right ul li {
+    padding: 0;
+}
+.sitemap .site-gnb .right ul li ul li {
+    padding: 15px 20px;
+}
+.sitemap .site-gnb .right ul li ul li:last-child {
+    border-bottom: none;
+}
+.sitemap .site-gnb .right ul li ul li a {
+    border-bottom: none;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 0;
+}
+.sitemap .site-gnb .right .one {
+    margin-bottom: 50px;
 }

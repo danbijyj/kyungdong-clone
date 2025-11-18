@@ -12,40 +12,31 @@ const mainBanner = () => {
         interval = 5000;
 
     $next.addEventListener('click', (e) => {
-        moveNext();
-    });
-    $prev.addEventListener('click', (e) => {
-        movePrev();
-    });
-
-    // 다음으로 이동하는 함수
-    const moveNext = () => {
         current++;
         if (current > totalImage - 1) current = 0;
+        // banner(true);
         banner('next');
-    };
-    // 이전으로 이동하는 함수
-    const movePrev = () => {
+    });
+    $prev.addEventListener('click', (e) => {
         current--;
         if (current < 0) current = totalImage - 1;
+        // banner(false);
         banner('prev');
-    };
+    });
 
     //공통
-    const banner = (direction) => {
-        const num = direction === 'next' ? size : -size;
+    const banner = (txt) => {
+        const num = txt === 'next' ? size : -size;
         $bannerli[current].style.transition = '0s';
         //순간이동
         $bannerli[current].style.left = `${num}%`;
         setTimeout(() => {
-            //현재배너등장
             $bannerli[current].style.transition = '0.4s';
             $bannerli[current].style.left = `0px`;
             $bannerli[current].style.zIndex = 10;
             $bannerli[current].classList.add('on');
 
-            //이전배너퇴장
-            $bannerli[old].style.left = `${-num}%`;
+            $bannerli[old].style.left = `${num * -1}%`;
             $bannerli[old].classList.remove('on');
             $bannerli[old].style.zIndex = 1;
 
@@ -68,24 +59,12 @@ const mainBanner = () => {
     };
     */
 
-    const lastBanner = (index) => {
+    const lastBanner = (z) => {
         setTimeout(() => {
             // 맨앞으로 이동
-            $bannerli[index].style.left = `${size}%`;
+            $bannerli[z].style.left = `${size}%`;
         }, 400); // transition 시간동일
     };
-
-    //자동재생
-    const autoBanner = () => {
-        timer = setInterval(() => {
-            moveNext();
-        }, interval);
-    };
-    autoBanner();
-
-    const $mainVisual = get('#mainVisual');
-    $mainVisual.addEventListener('mouseenter', () => clearInterval(timer));
-    $mainVisual.addEventListener('mouseleave', autoBanner);
 };
 //이벤트배너
 const eventBanner = () => {};
