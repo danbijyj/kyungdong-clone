@@ -306,14 +306,12 @@
     content: '';
     display: block;
     width: 43%;
-    /* height: 100vh; */
     height: 100%;
     background: #07255d;
     position: absolute;
     left: 0;
     top: 0;
     z-index: -10;
-    /* con3번에 배경이미지나 색이 없을경우에만 가능 */
 }
 .main .con3 .inner {
     height: 1080px;
